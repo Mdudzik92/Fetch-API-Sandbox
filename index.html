@@ -8,19 +8,9 @@
 	</head>
 	<body>
 		<button id="getText">Get Text</button>
+		<button id="getUsers">Get Users</button>
+		<div id="output"></div>
 
-		<script>
-			document.getElementById("getText").addEventListener("click", getText);
-
-			function getText() {
-				fetch("sample.txt")
-					.then(function (res) {
-						return res.text();
-					})
-					.then(function (data) {
-						console.log(data);
-					});
-			}
-		</script>
+		<script src="script.js"></script>
 	</body>
 </html>
