@@ -1,5 +1,6 @@
 document.getElementById("getText").addEventListener("click", getText);
 document.getElementById("getUsers").addEventListener("click", getUsers);
+document.getElementById("getPosts").addEventListener("click", getPosts);
 
 function getText() {
 	// fetch("sample.txt")
@@ -10,7 +11,8 @@ function getText() {
 	// 		console.log(data);
 	// 	});
 
-	// Looks cleaner with arrow functions here
+	// Looks cleaner with arrow functions here.
+	// .text() gets you the object, data  gets you the actual text, data, of the file.
 	fetch("sample.txt")
 		.then((res) => res.text())
 		.then((data) => {
@@ -31,6 +33,23 @@ function getUsers() {
                   <li>Name: ${user.name}</li>
                   <li>Email: ${user.email}</li>
                 </ul>
+                `;
+			});
+			document.getElementById("output").innerHTML = output;
+		});
+}
+
+function getPosts() {
+	fetch("https://jsonplaceholder.typicode.com/posts")
+		.then((res) => res.json())
+		.then((data) => {
+			let output = "<h2>Posts</h2>";
+			data.forEach(function (post) {
+				output += `
+                <div>
+                  <h3>${post.title}</h3>
+                  <p>${post.body}</p>
+                </div>
                 `;
 			});
 			document.getElementById("output").innerHTML = output;
