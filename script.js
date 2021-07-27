@@ -29,10 +29,10 @@ function getUsers() {
 			let output = "<h2>Users</h2>";
 			data.forEach(function (user) {
 				output += `
-                <ul>
-                  <li>ID: ${user.id}</li>
-                  <li>Name: ${user.name}</li>
-                  <li>Email: ${user.email}</li>
+                <ul class="list-group mb-3">
+                  <li class="list-group-item">ID: ${user.id}</li>
+                  <li class="list-group-item">Name: ${user.name}</li>
+                  <li class="list-group-item">Email: ${user.email}</li>
                 </ul>
                 `;
 			});
@@ -47,7 +47,7 @@ function getPosts() {
 			let output = "<h2>Posts</h2>";
 			data.forEach(function (post) {
 				output += `
-                <div>
+                <div class="card card-body mb-3">
                   <h3>${post.title}</h3>
                   <p>${post.body}</p>
                 </div>
@@ -57,6 +57,7 @@ function getPosts() {
 		});
 }
 
+// Since it's a form we're passing in an event parameter (e) and running preventDefault() to stop it from submitting to a file
 function addPost(e) {
 	e.preventDefault();
 
